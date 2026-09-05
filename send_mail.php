@@ -1,4 +1,17 @@
 <?php
+// Check if PHPMailer is installed, if not provide instructions
+$phpmailer_path = __DIR__ . '/vendor/autoload.php';
+
+if (!file_exists($phpmailer_path)) {
+    die('PHPMailer library not found. Please install it using: composer require phpmailer/phpmailer');
+}
+
+require $phpmailer_path;
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
+
 header('Content-Type: text/plain; charset=utf-8');
 
 // Validate request method
@@ -28,34 +41,55 @@ $email   = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
 $subject = htmlspecialchars($subject, ENT_QUOTES, 'UTF-8');
 $message = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
 
-// Email configuration
-$to      = "padmanabhsaravade@gmail.com";
-$headers = "From: $email\r\n";
-$headers .= "Reply-To: $email\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$headers .= "X-Mailer: PHP/" . phpversion();
+try {
+    // Create PHPMailer instance
+    $mail = new PHPMailer(true);
 
-// Build email body
-$mailBody = "=== New Contact Form Message ===\n\n";
-$mailBody .= "Name: $name\n";
-$mailBody .= "Email: $email\n";
-$mailBody .= "Subject: $subject\n";
-$mailBody .= "Date: " . date('Y-m-d H:i:s') . "\n";
-$mailBody .= "IP Address: " . $_SERVER['REMOTE_ADDR'] . "\n";
-$mailBody .= "\n--- Message ---\n";
-$mailBody .= $message . "\n";
-$mailBody .= "\n=== End Message ===\n";
+    // SMTP Configuration
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com';              // Gmail SMTP server
+    $mail->SMTPAuth   = true;                          // Enable SMTP authentication
+    $mail->Username   = 'your-email@gmail.com';        // ← REPLACE WITH YOUR GMAIL
+    $mail->Password   = 'your-app-password';           // ← REPLACE WITH APP PASSWORD (NOT regular password)
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;// TLS encryption
+    $mail->Port       = 587;                           // Gmail SMTP port
+    $mail->SMTPDebug  = 0;                             // Set to 2 for debugging (don't use in production)
 
-// Attempt to send email
-$mail_sent = @mail($to, $subject, $mailBody, $headers);
+    // Email recipients and sender
+    $mail->setFrom('your-email@gmail.com', 'Portfolio Contact Form');
+    $mail->addAddress('padmanabhsaravade@gmail.com');  // Recipient email
+    $mail->addReplyTo($email, $name);                  // Reply-to sender's email
 
-if ($mail_sent) {
-    // Email sent successfully
-    echo "Thank you for your message! I will get back to you soon.";
-    http_response_code(200);
-} else {
-    // Mail function failed (server might not be configured)
-    echo "Message received but email delivery failed. This could be a server configuration issue. Please try contacting me directly at padmanabhsaravade@gmail.com or call +91 9110843494";
+    // Email subject and body
+    $mail->isHTML(false);
+    $mail->Subject = "New Contact: $subject";
+
+    // Build email body
+    $emailBody = "=== New Contact Form Message ===\n\n";
+    $emailBody .= "Name: $name\n";
+    $emailBody .= "Email: $email\n";
+    $emailBody .= "Subject: $subject\n";
+    $emailBody .= "Date: " . date('Y-m-d H:i:s') . "\n";
+    $emailBody .= "IP Address: " . $_SERVER['REMOTE_ADDR'] . "\n";
+    $emailBody .= "\n--- Message ---\n";
+    $emailBody .= $message . "\n";
+    $emailBody .= "\n=== End Message ===\n";
+
+    $mail->Body = $emailBody;
+
+    // Send email
+    if ($mail->send()) {
+        echo "Thank you for your message! I will get back to you soon.";
+        http_response_code(200);
+    } else {
+        echo "Failed to send email. Please try again later.";
+        http_response_code(500);
+    }
+
+} catch (Exception $e) {
+    // Handle errors
+    error_log("Mail Error: " . $mail->ErrorInfo);
+    echo "Error sending message: " . $mail->ErrorInfo;
     http_response_code(500);
 }
 
