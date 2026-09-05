@@ -499,26 +499,6 @@
             resize: vertical;
         }
 
-        .form-message {
-            margin-top: 15px;
-            padding: 12px 15px;
-            border-radius: 5px;
-            display: none;
-            font-weight: 600;
-        }
-
-        .form-message.success {
-            background: #d4edda;
-            color: #155724;
-            display: block;
-        }
-
-        .form-message.error {
-            background: #f8d7da;
-            color: #721c24;
-            display: block;
-        }
-
         /* Footer */
         footer {
             background: var(--primary);
@@ -895,7 +875,7 @@
                 </div>
 
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/f/xyzjqbzl" method="POST">
                         <div class="form-group">
                             <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
@@ -910,7 +890,6 @@
                                 required></textarea>
                         </div>
                         <button type="submit" class="btn">Send Message</button>
-                        <div id="formMessage" class="form-message"></div>
                     </form>
                 </div>
             </div>
@@ -966,42 +945,6 @@
                         card.style.display = 'none';
                     }
                 });
-            });
-        });
-
-        // Contact Form Handler
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const formData = new FormData(this);
-            const messageDiv = document.getElementById('formMessage');
-
-            // Show loading state
-            messageDiv.textContent = 'Sending message...';
-            messageDiv.classList.add('success');
-            messageDiv.classList.remove('error');
-
-            fetch('send_mail.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
-                messageDiv.classList.remove('success', 'error');
-
-                if (data.includes('Thank you') || data.includes('success')) {
-                    messageDiv.textContent = data;
-                    messageDiv.classList.add('success');
-                    document.getElementById('contactForm').reset();
-                } else {
-                    messageDiv.textContent = data || 'An error occurred. Please try again.';
-                    messageDiv.classList.add('error');
-                }
-            })
-            .catch(error => {
-                messageDiv.textContent = 'Error sending message: ' + error;
-                messageDiv.classList.remove('success');
-                messageDiv.classList.add('error');
             });
         });
     </script>
