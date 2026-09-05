@@ -499,6 +499,26 @@
             resize: vertical;
         }
 
+        .form-message {
+            margin-top: 15px;
+            padding: 12px 15px;
+            border-radius: 5px;
+            display: none;
+            font-weight: 600;
+        }
+
+        .form-message.success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+
         /* Footer */
         footer {
             background: var(--primary);
@@ -616,10 +636,14 @@
     </style>
 </head>
 
-<body> <!-- Header & Navigation -->
+<body>
+    <!-- Header & Navigation -->
     <header>
-        <div class="container nav-container"> <a href="#" class="logo">Padmanabh<span>.</span></a>
-            <div class="hamburger" id="hamburger"> <i class="fas fa-bars"></i> </div>
+        <div class="container nav-container">
+            <a href="#" class="logo">Padmanabh<span>.</span></a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -629,15 +653,21 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
-    </header> <!-- Hero Section -->
+    </header>
+
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
             <h1>Padmanabh Saravade</h1>
             <p>Aspiring Software Engineer | Innovative Problem-Solver with an Interdisciplinary Approach</p>
-            <div class="hero-btns"> <a href="#projects" class="btn">View My Work</a> <a href="#contact"
-                    class="btn btn-outline">Get In Touch</a> </div>
+            <div class="hero-btns">
+                <a href="#projects" class="btn">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+            </div>
         </div>
-    </section> <!-- About Section -->
+    </section>
+
+    <!-- About Section -->
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
@@ -650,11 +680,14 @@
                     <p>Eager to contribute technical skills in Java, Python, web development, and AWS to a collaborative
                         team environment.</p>
                 </div>
-                <div class="about-img"> <!-- Replace this URL with your actual photo --> <img
-                        src="padmanabh profile pic.jpg" alt="Padmanabh Saravade" class="profile-img"> </div>
+                <div class="about-img">
+                    <img src="padmanabh profile pic.jpg" alt="Padmanabh Saravade" class="profile-img">
+                </div>
             </div>
         </div>
-    </section> <!-- Skills Section -->
+    </section>
+
+    <!-- Skills Section -->
     <section id="skills">
         <div class="container">
             <h2>Skills & Technologies</h2>
@@ -698,65 +731,98 @@
                 </div>
             </div>
         </div>
-    </section> <!-- Projects Section -->
+    </section>
+
+    <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
             <h2>My Projects</h2>
-            <div class="project-filters"> <button class="filter-btn active" data-filter="all">All</button> <button
-                    class="filter-btn" data-filter="software">Software</button> <button class="filter-btn"
-                    data-filter="web">Web</button> <button class="filter-btn" data-filter="research">Research</button>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="software">Software</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="research">Research</button>
             </div>
-            <div class="projects-grid"> <!-- Project 1 -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
                 <div class="project-card" data-category="software">
-                    <div class="project-img" style="background: #3498db;"> <i class="fas fa-industry"></i> </div>
+                    <div class="project-img" style="background: #3498db;">
+                        <i class="fas fa-industry"></i>
+                    </div>
                     <div class="project-content">
                         <h3>Textile Trade Material Logging Software</h3>
                         <p>A software system to track yarn inflow/outflow, manage individual customer ledgers, and
                             generate reports. Improved accuracy, transparency, and efficiency in textile trade
                             operations.</p>
-                        <div class="project-tags"> <span class="project-tag">Java</span> <span
-                                class="project-tag">MySQL</span> <span class="project-tag">Angular</span> </div> <a
-                            href="#" class="btn">View Details</a>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">Angular</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
                     </div>
-                </div> <!-- Project 2 -->
+                </div>
+
+                <!-- Project 2 -->
                 <div class="project-card" data-category="software">
-                    <div class="project-img" style="background: #e74c3c;"> <i class="fas fa-robot"></i> </div>
+                    <div class="project-img" style="background: #e74c3c;">
+                        <i class="fas fa-robot"></i>
+                    </div>
                     <div class="project-content">
                         <h3>Automated Reel Changer for Textile Winding Machine</h3>
                         <p>Developing a first-of-its-kind automatic reel-changing system for yarn winding — an
                             innovative, patent-oriented solution enabling continuous automation in textiles.</p>
-                        <div class="project-tags"> <span class="project-tag">IoT</span> <span
-                                class="project-tag">Automation</span> <span class="project-tag">Embedded Systems</span>
-                        </div> <a href="#" class="btn">View Details</a>
+                        <div class="project-tags">
+                            <span class="project-tag">IoT</span>
+                            <span class="project-tag">Automation</span>
+                            <span class="project-tag">Embedded Systems</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
                     </div>
-                </div> <!-- Project 3 -->
+                </div>
+
+                <!-- Project 3 -->
                 <div class="project-card" data-category="web">
-                    <div class="project-img" style="background: #2ecc71;"> <i class="fas fa-laptop-code"></i> </div>
+                    <div class="project-img" style="background: #2ecc71;">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
                     <div class="project-content">
                         <h3>Personal Portfolio Website</h3>
                         <p>Developed a responsive website to showcase projects, skills, and achievements using HTML,
                             CSS, and JavaScript.</p>
-                        <div class="project-tags"> <span class="project-tag">HTML</span> <span
-                                class="project-tag">CSS</span> <span class="project-tag">JavaScript</span> </div> <a
-                            href="#" class="btn">View Details</a>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
                     </div>
-                </div> <!-- Project 4 -->
+                </div>
+
+                <!-- Project 4 -->
                 <div class="project-card" data-category="research">
-                    <div class="project-img" style="background: #9b59b6;"> <i class="fas fa-microscope"></i> </div>
+                    <div class="project-img" style="background: #9b59b6;">
+                        <i class="fas fa-microscope"></i>
+                    </div>
                     <div class="project-content">
                         <h3>Mathematics in Forensic Science</h3>
                         <p>Applying calculus, probability, graph theory, and trigonometry to forensic science for crime
                             analysis, such as estimating time of death, analyzing blood spatter, and suspect
                             identification.</p>
-                        <div class="project-tags"> <span class="project-tag">Mathematics</span> <span
-                                class="project-tag">Research</span> <span class="project-tag">Forensics</span> </div> <a
-                            href="https://drive.google.com/file/d/1Jw1aFepCXCqPWOeTs-3EydVKFFElgjIg/view"
+                        <div class="project-tags">
+                            <span class="project-tag">Mathematics</span>
+                            <span class="project-tag">Research</span>
+                            <span class="project-tag">Forensics</span>
+                        </div>
+                        <a href="https://drive.google.com/file/d/1Jw1aFepCXCqPWOeTs-3EydVKFFElgjIg/view"
                             class="btn">View Details</a>
                     </div>
                 </div>
             </div>
         </div>
-    </section> <!-- Education Section -->
+    </section>
+
+    <!-- Education Section -->
     <section id="education">
         <div class="container">
             <h2>Education</h2>
@@ -791,66 +857,154 @@
                 </div>
             </div>
         </div>
-    </section> <!-- Contact Section -->
+    </section>
+
+    <!-- Contact Section -->
     <section id="contact">
         <div class="container">
             <h2>Get In Touch</h2>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon"> <i class="fas fa-map-marker-alt"></i> </div>
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
                         <div>
                             <h3>Location</h3>
                             <p>Bengaluru, Karnataka 560060</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon"> <i class="fas fa-phone"></i> </div>
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
                         <div>
                             <h3>Phone</h3>
                             <p>+91 9110843494</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon"> <i class="fas fa-envelope"></i> </div>
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <div>
                             <h3>Email</h3>
                             <p>padmanabhsaravade@gmail.com</p>
                         </div>
                     </div>
                 </div>
+
                 <div class="contact-form">
                     <form id="contactForm">
-                        <div class="form-group"> <input type="text" class="form-control" placeholder="Your Name"
-                                required> </div>
-                        <div class="form-group"> <input type="email" class="form-control" placeholder="Your Email"
-                                required> </div>
-                        <div class="form-group"> <input type="text" class="form-control" placeholder="Subject" required>
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
-                        <div class="form-group"> <textarea class="form-control" placeholder="Your Message"
-                                required></textarea> </div> <button type="submit" class="btn">Send Message</button>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" placeholder="Your Message"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                        <div id="formMessage" class="form-message"></div>
                     </form>
                 </div>
             </div>
         </div>
-    </section> <!-- Footer -->
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <h3>Padmanabh Saravade</h3>
             <p>Aspiring Software Engineer | Innovative Problem-Solver</p>
-            <div class="social-links"> <a
-                    href="https://www.linkedin.com/in/padmanabh-saravade-9967b2345?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                    class="social-link"><i class="fab fa-linkedin-in"></i></a> <a
-                    href="https://github.com/saravadepadmanabh" class="social-link"><i class="fab fa-github"></i></a> <a
-                    href="#" class="social-link"><i class="fab fa-twitter"></i></a> <a
-                    href="https://www.instagram.com/padmanabh__ps/" class="social-link"><i
-                        class="fab fa-instagram"></i></a> </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/padmanabh-saravade-9967b2345?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/saravadepadmanabh" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/padmanabh__ps/" class="social-link"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
             <div class="copyright">
                 <p>&copy; 2023 Padmanabh Saravade. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    <script> //Mobile Navigation Toggle const hamburger = document.getElementById('hamburger'); const navLinks = document.getElementById('nav-links'); hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); }); // Close mobile menu when clicking on a link document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click', () => { navLinks.classList.remove('active'); }); }); // Project Filtering const filterBtns = document.querySelectorAll('.filter-btn'); const projectCards = document.querySelectorAll('.project-card'); filterBtns.forEach(btn => { btn.addEventListener('click', () => { // Remove active class from all buttons filterBtns.forEach(b => b.classList.remove('active')); // Add active class to clicked button btn.classList.add('active'); const filter = btn.getAttribute('data-filter'); projectCards.forEach(card => { if (filter === 'all' || card.getAttribute('data-category') === filter) { card.style.display = 'block'; } else { card.style.display = 'none'; } }); }); }); // Form Submission const contactForm = document.getElementById('contactForm'); contactForm.addEventListener('submit', (e) => { e.preventDefault(); alert('Thank you for your message! I will get back to you soon.'); contactForm.reset(); }); // Smooth scrolling for navigation links document.querySelectorAll('a[href^="#"]').forEach(anchor => { anchor.addEventListener('click', function (e) { e.preventDefault(); const targetId = this.getAttribute('href'); if (targetId === '#') return; const targetElement = document.querySelector(targetId); if (targetElement) { window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' }); } }); }); // Add scroll effect to header window.addEventListener('scroll', () => { const header = document.querySelector('header'); if (window.scrollY > 100) { header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)'; } else { header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)'; } }); </script>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Project Filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                document.querySelectorAll('.project-card').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            const messageDiv = document.getElementById('formMessage');
+
+            // Show loading state
+            messageDiv.textContent = 'Sending message...';
+            messageDiv.classList.add('success');
+            messageDiv.classList.remove('error');
+
+            fetch('send_mail.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                messageDiv.classList.remove('success', 'error');
+
+                if (data.includes('Thank you') || data.includes('success')) {
+                    messageDiv.textContent = data;
+                    messageDiv.classList.add('success');
+                    document.getElementById('contactForm').reset();
+                } else {
+                    messageDiv.textContent = data || 'An error occurred. Please try again.';
+                    messageDiv.classList.add('error');
+                }
+            })
+            .catch(error => {
+                messageDiv.textContent = 'Error sending message: ' + error;
+                messageDiv.classList.remove('success');
+                messageDiv.classList.add('error');
+            });
+        });
+    </script>
 </body>
 
 </html>
